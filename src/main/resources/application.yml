@@ -1,0 +1,29 @@
+#端口号
+server:
+  port: 8080
+
+#数据库链接设置
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nqcl?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: yangqi
+
+#整合Mybatis
+mybatis:
+  #  扫描数据持久对应的实体类 路径 Package级别
+  type-aliases-package: com.nqcl.api.entity
+  #  mybatis 对应的 .xml文件路径
+  mapper-locations: classpath:mappers/*.xml
+#  多层级目录  mapper-locations: classpath:mapper/**/**.xml
+
+
+#  打印 sql 扫描dao层
+logging:
+  level:
+    com:
+      nqcl:
+         api:
+           dao:  debug
